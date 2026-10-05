@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: leads-tracker-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install --include=dev && npx prisma generate && npx prisma migrate deploy && npm run build && npm run seed
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        value: file:./dev.db

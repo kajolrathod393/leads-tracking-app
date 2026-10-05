@@ -1,0 +1,18 @@
+{
+  "name": "leads-tracking-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Leads Tracking App - REST API (Express + Prisma + SQLite) and React web portal",
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "postinstall": "npm run install:all",
+    "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "build": "npm run build --prefix backend && npm run build --prefix frontend",
+    "test": "npm test --prefix backend",
+    "seed": "npm run seed --prefix backend",
+    "migrate": "npm --prefix backend exec prisma migrate dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
